@@ -1,3 +1,4 @@
+import { sentry } from './sentry'
 import { badRequest, notFound } from '@hapi/boom'
 import Hapi from '@hapi/hapi'
 import { Filter, ObjectId, Document, FindCursor, SortDirection } from 'mongodb'
@@ -141,6 +142,14 @@ const init = async (): Promise<void> => {
       }
     }
   })
+  if (config.isProd) {
+    await server.register({
+      plugin: require('hapi-sentry'),
+      options: {
+        client: sentry
+      }
+    })
+  }
   await server.register({
     plugin: laabr,
     options: {

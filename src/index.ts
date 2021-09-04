@@ -1,4 +1,5 @@
 import { sentry } from './sentry'
+import './otel'
 import { badRequest, notFound } from '@hapi/boom'
 import Hapi from '@hapi/hapi'
 import { Filter, ObjectId, Document, FindCursor, SortDirection } from 'mongodb'

@@ -1,0 +1,51 @@
+{
+  "name": "mongodbrest",
+  "version": "1.0.0",
+  "description": "MongoDB to Rest",
+  "main": "src/index.ts",
+  "author": "Ale Ornelas",
+  "license": "MIT",
+  "dependencies": {
+    "@types/hapi": "^18.0.6",
+    "@types/hapi__hapi": "^20.0.9",
+    "@types/invariant": "^2.2.35",
+    "@types/node": "^16.7.10",
+    "@hapi/boom": "^9.1.4",
+    "@hapi/hapi": "^20.1.5",
+    "blipp": "^4.0.2",
+    "brok": "^5.0.1",
+    "hapi-k8s-health": "^1.1.1",
+    "hapi-response-time": "^2.2.1",
+    "hapi-x-request-id": "^1.1.2",
+    "invariant": "^2.2.4",
+    "laabr": "^6.1.3",
+    "mongodb": "^4.1.1",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^4.0.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "^7.0",
+    "husky": ">=6",
+    "lint-staged": ">=10",
+    "prettier": "^2.3.2",
+    "prettier-config-standard": "^4.0.0",
+    "standard": "^16.0.3",
+    "ts-standard": "^10.0.0"
+  },
+  "prettier": "prettier-config-standard",
+  "lint-staged": {
+    "*.ts": "ts-standard --fix",
+    "*.{md}": "prettier --write"
+  },
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

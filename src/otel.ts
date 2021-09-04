@@ -6,20 +6,23 @@ import { HapiInstrumentation } from '@opentelemetry/instrumentation-hapi'
 import { JaegerExporter } from '@opentelemetry/exporter-jaeger'
 import { SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base'
 import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node'
+import { config } from './config'
 
-const provider = new NodeTracerProvider()
-const exporter = new JaegerExporter()
-provider.addSpanProcessor(new SimpleSpanProcessor(exporter))
-provider.register()
+if (config.isProd) {
+  const provider = new NodeTracerProvider()
+  const exporter = new JaegerExporter()
+  provider.addSpanProcessor(new SimpleSpanProcessor(exporter))
+  provider.register()
 
-// register and load instrumentation and old plugins - old plugins will be loaded automatically as previously
-// but instrumentations needs to be added
-registerInstrumentations({
-  instrumentations: [
-    ...getNodeAutoInstrumentations(),
-    new HapiInstrumentation(),
-    new MongoDBInstrumentation({ enhancedDatabaseReporting: true }),
-    new HttpInstrumentation(),
-    new HapiInstrumentation()
-  ]
-})
+  // register and load instrumentation and old plugins - old plugins will be loaded automatically as previously
+  // but instrumentations needs to be added
+  registerInstrumentations({
+    instrumentations: [
+      ...getNodeAutoInstrumentations(),
+      new HapiInstrumentation(),
+      new MongoDBInstrumentation({ enhancedDatabaseReporting: true }),
+      new HttpInstrumentation(),
+      new HapiInstrumentation()
+    ]
+  })
+}

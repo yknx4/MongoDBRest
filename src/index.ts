@@ -122,15 +122,30 @@ const init = async (): Promise<void> => {
             return badRequest('Invalid sort field', { sort })
           }
 
-          findQuery = collectionQuery.find({ $and: [{ _id: { [sortOperator]: last } }, { [sortField]: { [sortOperator]: sortValue } }] })
+          findQuery = collectionQuery.find({ $and: [{ _id: { [sortOperator]: last } }, { [sortField]: { [sortOperator]: sortValue } }, { [sortField]: { $exists: true } }, query] })
+        } else if (query === undefined && sort !== undefined && last !== undefined) {
+          const lastDocument = await collectionQuery.findOne({ _id: last })
+          if (lastDocument === null) {
+            return notFound('last item not found', { collection, last: request.params.last })
+          }
+
+          const sortField = sort[0]
+          const sortOperator = sort[1] === 1 ? '$gt' : '$lt'
+          const sortValue = lastDocument[sortField]
+          if (sortValue == null) {
+            return badRequest('Invalid sort field', { sort })
+          }
+          findQuery = collectionQuery.find({ $and: [{ _id: { [sortOperator]: last } }, { [sortField]: { [sortOperator]: sortValue } }, { [sortField]: { $exists: true } }] })
         } else if (query === undefined && sort === undefined && last !== undefined) {
           findQuery = collectionQuery.find({ _id: { $gt: last } })
         } else if (query !== undefined && sort === undefined && last !== undefined) {
           findQuery = collectionQuery.find({ ...query, _id: { $gt: last } })
         } else if (query !== undefined && sort !== undefined) {
-          findQuery = collectionQuery.find(query).sort(sort)
+          const sortField = sort[0]
+          findQuery = collectionQuery.find({ [sortField]: { $exists: true }, ...query }).sort(sort)
         } else if (sort !== undefined) {
-          findQuery = collectionQuery.find().sort(sort)
+          const sortField = sort[0]
+          findQuery = collectionQuery.find({ [sortField]: { $exists: true } }).sort(sort)
         } else {
           findQuery = collectionQuery.find()
         }

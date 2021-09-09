@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1631229583200" clover="3.2.0">
-  <project timestamp="1631229583200" name="All files">
+<coverage generated="1631229738996" clover="3.2.0">
+  <project timestamp="1631229738996" name="All files">
     <metrics statements="118" coveredstatements="99" conditionals="95" coveredconditionals="71" methods="12" coveredmethods="9" elements="225" coveredelements="179" complexity="0" loc="118" ncloc="118" packages="1" files="3" classes="3"/>
     <file name="config.ts" path="/home/yknx4/Projects/mongodbrest/src/config.ts">
       <metrics statements="1" coveredstatements="1" conditionals="16" coveredconditionals="12" methods="0" coveredmethods="0"/>
@@ -104,30 +104,30 @@
       <line num="155" count="1" type="cond" truecount="1" falsecount="1"/>
       <line num="156" count="0" type="stmt"/>
       <line num="159" count="1" type="stmt"/>
-      <line num="168" count="4" type="cond" truecount="2" falsecount="2"/>
-      <line num="169" count="0" type="stmt"/>
-      <line num="171" count="4" type="stmt"/>
-      <line num="174" count="11" type="cond" truecount="1" falsecount="0"/>
-      <line num="175" count="11" type="stmt"/>
+      <line num="167" count="4" type="cond" truecount="2" falsecount="2"/>
+      <line num="168" count="0" type="stmt"/>
+      <line num="170" count="4" type="stmt"/>
+      <line num="173" count="11" type="cond" truecount="1" falsecount="0"/>
+      <line num="174" count="11" type="stmt"/>
+      <line num="176" count="0" type="stmt"/>
       <line num="177" count="0" type="stmt"/>
-      <line num="178" count="0" type="stmt"/>
-      <line num="182" count="2" type="cond" truecount="1" falsecount="1"/>
-      <line num="183" count="0" type="stmt"/>
-      <line num="190" count="2" type="cond" truecount="1" falsecount="0"/>
+      <line num="181" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="182" count="0" type="stmt"/>
+      <line num="189" count="2" type="cond" truecount="1" falsecount="0"/>
+      <line num="197" count="2" type="stmt"/>
       <line num="198" count="2" type="stmt"/>
-      <line num="199" count="2" type="stmt"/>
-      <line num="206" count="2" type="stmt"/>
-      <line num="208" count="2" type="cond" truecount="1" falsecount="1"/>
-      <line num="209" count="0" type="stmt"/>
-      <line num="213" count="0" type="stmt"/>
-      <line num="214" count="0" type="cond" truecount="0" falsecount="1"/>
-      <line num="218" count="0" type="cond" truecount="0" falsecount="1"/>
-      <line num="224" count="2" type="stmt"/>
-      <line num="226" count="1" type="stmt"/>
-      <line num="229" count="1" type="stmt"/>
-      <line num="230" count="0" type="cond" truecount="0" falsecount="1"/>
+      <line num="205" count="2" type="stmt"/>
+      <line num="207" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="208" count="0" type="stmt"/>
+      <line num="212" count="0" type="stmt"/>
+      <line num="213" count="0" type="cond" truecount="0" falsecount="1"/>
+      <line num="217" count="0" type="cond" truecount="0" falsecount="1"/>
+      <line num="223" count="2" type="stmt"/>
+      <line num="225" count="1" type="stmt"/>
+      <line num="228" count="1" type="stmt"/>
+      <line num="229" count="0" type="cond" truecount="0" falsecount="1"/>
+      <line num="230" count="0" type="stmt"/>
       <line num="231" count="0" type="stmt"/>
-      <line num="232" count="0" type="stmt"/>
     </file>
   </project>
 </coverage>

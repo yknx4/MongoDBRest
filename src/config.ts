@@ -1,4 +1,4 @@
-interface Config {
+export interface Config {
   mongodbstring: string
   port: string
   host: string

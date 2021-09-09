@@ -1,4 +1,11 @@
 {
   "standard.engine": "ts-standard",
-  "standard.usePackageJson": true
+  "standard.usePackageJson": true,
+  "standard.validate": [
+  
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ]
 }

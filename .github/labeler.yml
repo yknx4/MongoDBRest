@@ -1,0 +1,15 @@
+test:
+  - src/**/*.test.ts
+
+enhancement:
+  - src/**/*.ts
+
+documentation:
+  - /**/*.md
+
+dependencies:
+  - package.json
+  - yarn.lock
+
+chore:
+  - .github/**/*

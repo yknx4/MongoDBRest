@@ -135,7 +135,6 @@ describe('Server', () => {
       })
       expect(res.statusCode).toEqual(200)
       let data = res.result as Array<{_id: string, value: number}>
-      console.log(data)
       const firstPageLastElement = last(data)
       res = await server.inject({
         method: 'get',
@@ -143,7 +142,6 @@ describe('Server', () => {
       })
       expect(res.statusCode).toEqual(200)
       data = res.result as Array<{_id: string, value: number}>
-      console.log(data)
       expect(data[0].value).toEqual(10)
     })
 

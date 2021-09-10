@@ -1,10 +1,14 @@
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   dependencies:
     runs-on: ubuntu-latest
     env:
-      MIX_ENV: test
+      NODE_ENV: test
     strategy:
       matrix:
         node: ["14", "16"]
@@ -27,7 +31,7 @@ jobs:
     needs: dependencies
     runs-on: ubuntu-latest
     env:
-      MIX_ENV: test
+      NODE_ENV: test
     strategy:
       matrix:
         node: ["14", "16"]
@@ -52,7 +56,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: dependencies
     env:
-      MIX_ENV: test
+      NODE_ENV: test
 
     strategy:
       matrix:
@@ -85,19 +89,22 @@ jobs:
         run: yarn install
       - name: Test
         run: yarn test --coverage
-      - name: LibreCov
-        if: ${{ matrix.node == '14' && matrix.mongo == '3-xenial' }}
+      - name: LibreCov Node (PR)
+        if: ${{ github.event_name == 'pull_request' && matrix.node == '14' && matrix.mongo == '3-xenial' }}
         env:
-          SHA: ${{github.sha}}
-          BRANCH: ${{ steps.branch-name.outputs.current_branch }}
-          TOKEN: ${{ secrets.OPENCOV_TOKEN }}
-          COVERALLS_ENDPOINT: ${{ secrets.OPENCOV_ENDPOINT }}
+          CODECOV_URL: ${{ secrets.LIBRECOV_ENDPOINT }}
+          CODECOV_TOKEN: ${{ secrets.LIBRECOV_TOKEN }}
+          REAL_SHA: ${{ github.event.pull_request.head.sha }}
+          GITHUB_RUN_ID: "1${{ github.run_id }}"
         run: |
-          MIX_ENV=test mix coveralls.post \
-          --name github \
-          --build "$GITHUB_RUN_ID" \
-          --sha "$SHA" \
-          --committer "$(git log -1 $SHA --pretty=format:'%cN')" \
-          --message "$(git log -1 $SHA --pretty=format:'%s')" \
-          --branch "$BRANCH" \
-          --token "$TOKEN"
+          yarn add codecov
+          npx codecov --commit=$REAL_SHA  --disable=s3
+      - name: LibreCov Node (Push)
+        if: ${{ github.event_name == 'push' && matrix.node == '14' && matrix.mongo == '3-xenial' }}
+        env:
+          CODECOV_URL: ${{ secrets.LIBRECOV_ENDPOINT }}
+          CODECOV_TOKEN: ${{ secrets.LIBRECOV_TOKEN }}
+          GITHUB_RUN_ID: "1${{ github.run_id }}"
+        run: |
+          yarn add codecov
+          npx codecov --disable=s3

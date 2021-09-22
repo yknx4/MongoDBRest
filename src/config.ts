@@ -4,6 +4,7 @@ export interface Config {
   host: string
   isProd: boolean
   sentryDsn: string
+  otelServiceName: string
 }
 
 export const config: Config = {
@@ -11,5 +12,6 @@ export const config: Config = {
   port: process.env.PORT ?? '5000',
   host: process.env.HOST ?? 'localhost',
   isProd: process.env.NODE_ENV === 'production',
-  sentryDsn: process.env.SENTRY_DSN ?? ''
+  sentryDsn: process.env.SENTRY_DSN ?? '',
+  otelServiceName: process.env.OTEL_SERVICE_NAME ?? ''
 }

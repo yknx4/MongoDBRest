@@ -8,7 +8,7 @@ import { SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base'
 import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node'
 import { config } from './config'
 
-if (config.isProd) {
+if (config.isProd && config.otelServiceName !== '') {
   const provider = new NodeTracerProvider()
   const exporter = new JaegerExporter()
   provider.addSpanProcessor(new SimpleSpanProcessor(exporter))

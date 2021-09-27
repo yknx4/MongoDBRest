@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@types/jest": "27.0.1",
-    "@types/lodash": "4.14.172",
+    "@types/lodash": "4.14.175",
     "@typescript-eslint/parser": "4.30.0",
     "commitizen": "4.2.4",
     "cz-conventional-changelog": "3.3.0",

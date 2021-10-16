@@ -48,7 +48,7 @@
     "prettier": "2.3.2",
     "prettier-config-standard": "4.0.0",
     "standard": "16.0.3",
-    "ts-jest": "27.0.5",
+    "ts-jest": "27.0.7",
     "ts-standard": "10.0.0"
   },
   "prettier": "prettier-config-standard",

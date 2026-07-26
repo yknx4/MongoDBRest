@@ -1,6 +1,6 @@
 {
   "name": "mongodbrest",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "MongoDB to Rest",
   "main": "src/index.ts",
   "author": "Ale Ornelas",
@@ -45,7 +45,7 @@
     "jest": "^27.1.0",
     "lint-staged": "11.1.2",
     "lodash": "^4.17.21",
-    "prettier": "2.3.2",
+    "prettier": "2.8.8",
     "prettier-config-standard": "4.0.0",
     "standard": "16.0.3",
     "ts-jest": "27.0.5",

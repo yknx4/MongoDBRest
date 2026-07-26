@@ -1,6 +1,6 @@
 {
   "name": "mongodbrest",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "MongoDB to Rest",
   "main": "src/index.ts",
   "author": "Ale Ornelas",
@@ -38,7 +38,7 @@
     "@types/jest": "27.0.1",
     "@types/lodash": "4.14.172",
     "@typescript-eslint/parser": "4.30.0",
-    "commitizen": "4.2.4",
+    "commitizen": "4.3.2",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "7.32.0",
     "husky": "7.0.2",
